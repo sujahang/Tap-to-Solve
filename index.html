@@ -3,75 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style.css">
   <title>Calculator</title>
-  <style>
-    body {
-      background: #0a1401;
-      font-family: 'Segoe UI', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    .calculator {
-      background: #bcecbe;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.2);
-      width: 300px;
-    }
-
-    .display {
-      background: #1b641b;
-      color: rgb(251, 253, 251);
-      font-size: 2em;
-      padding: 15px;
-      border: 2px solid rgb(1, 20, 5);
-      width: 90%;
-      overflow: hidden;
-      text-align: right;
-      border-radius: 10px;
-      margin-bottom: 20px;
-      overflow: auto;
-    }
-
-    .buttons {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
-    }
-
-    .buttons button {
-      padding: 20px;
-      font-size: 1.2em;
-      border: none;
-      border-radius: 10px;
-      background: #4b9b48;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-
-    .buttons button:hover {
-      background: #92eb89;
-    }
-
-    .operator {
-      background: #f9a825;
-      color: white;
-    }
-
-    .equal {
-      background: #43a047;
-      color: white;
-      grid-column: span 2;
-    }
-
-    .clear {
-      background: #e53935;
-      color: white;
-    }
-  </style>
+  
 </head>
 <body>
 
@@ -104,31 +38,6 @@
     </div>
   </div>
 
+  <script src="script.js"></script>
 </body>
-<script>
-  const buttons = document.querySelectorAll('button');
-  const input = document.querySelector('.display');
-
-  let inputVale = "";
-  let arr = Array.from(buttons);
-
-  arr.forEach((button) => {
-    button.addEventListener('click', (e) => {
-      let btnText = e.target.innerHTML;
-      if(btnText == "=") {
-        inputVale = eval(inputVale);
-        input.value = inputVale;
-      } else if (btnText == "C") {
-        inputVale = "";
-        input.value = inputVale;
-      } else if(btnText == "←") {
-        inputVale = inputVale.substring(0, inputVale.length -1);
-        input.value = inputVale;
-      }else {
-        inputVale += btnText;
-        input.value = inputVale;
-      }
-    })
-  })
-</script>
 </html>
